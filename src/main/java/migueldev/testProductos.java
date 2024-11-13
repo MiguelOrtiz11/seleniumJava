@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.util.List;
 
 public class testProductos {
@@ -29,23 +30,17 @@ public class testProductos {
     public void login(String username, String password) {
         driver.get("https://www.saucedemo.com/v1/");
 
-        try {
-            Thread.sleep(2000); // Pausa antes de interactuar con el campo de usuario
-            WebElement usernameField = driver.findElement(By.xpath("//input[@id='user-name']"));
-            usernameField.sendKeys(username);
 
-            Thread.sleep(2000); // Pausa antes de interactuar con el campo de contraseña
-            WebElement passwordField = driver.findElement(By.xpath("//input[@id='password']"));
-            passwordField.sendKeys(password);
+        WebElement usernameField = driver.findElement(By.xpath("//input[@id='user-name']"));
+        usernameField.sendKeys(username);
 
-            Thread.sleep(2000); // Pausa antes de hacer clic en el botón de login
-            WebElement loginButton = driver.findElement(By.xpath("//input[@id='login-button']"));
-            loginButton.click();
+        WebElement passwordField = driver.findElement(By.xpath("//input[@id='password']"));
+        passwordField.sendKeys(password);
 
-            Thread.sleep(2000); // Pausa para ver la página de productos
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        WebElement loginButton = driver.findElement(By.xpath("//input[@id='login-button']"));
+        loginButton.click();
+
+
     }
 
     // Añade productos al carrito
